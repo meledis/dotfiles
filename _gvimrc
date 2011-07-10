@@ -1,5 +1,5 @@
 if has('gui_macvim')
-  set guifont=Monaco:h13 "フォント
+  set guifont=Ricty:h13 "フォント
   set tabstop=2        " タブサイズ
   set number           " 行番号表示
   set showtabline=2    " タブを常に表示

@@ -1,6 +1,19 @@
 " Common -------------------------------
 set nocompatible				" vim
-colorscheme Metroid			" カラースキーマの設定
+" vundle -----------------
+filetype off
+
+"vundleのディレクトリ
+set rtp+=~/dotfiles/vimfiles/vundle.git/
+call vundle#rc()
+"Bundle...は使用するプラグインを書く。詳細はguthubのREADMEが詳しい。
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/unite.vim'
+Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-quickrun'
+filetype plugin indent on     " required!
+
+colorscheme desert			" カラースキーマの設定
 set background=light			" 背景色の傾向(カラースキーマがそれに併せて色の明暗を変えてくれる)
 
 " File ---------------------------------
@@ -15,7 +28,8 @@ syntax on				" シンタックスカラーリングオン
 " tabstop:				Tab文字を画面上で何文字分に展開するか
 " shiftwidth:				cindentやautoindent時に挿入されるインデントの幅
 " softtabstop:				Tabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
-set tabstop=2 shiftwidth=2 softtabstop=0
+set expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent smartindent		" 自動インデント，スマートインデント
 
 " Assist imputting ---------------------
@@ -74,7 +88,8 @@ if exists('&ambiwidth')
 	set ambiwidth=double		" UTF-8の□や○でカーソル位置がずれないようにする
 endif
 
-
+" バッファをクリップボードと共有
+set clipboard+=unnamed
 
 " --------------------------------------
 "              my config
@@ -89,4 +104,5 @@ imap <c-l> <Right>
 
 " When insert mode, change statusline.
 let g:hi_insert = 'hi StatusLine gui=None guifg=Black guibg=Yellow cterm=None ctermfg=Black ctermbg=Yellow'
+
 
